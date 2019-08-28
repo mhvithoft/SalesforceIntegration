@@ -4,7 +4,7 @@ public class VisitRepositoryTest {
     @isTest
     public static void findByZipCodeTest () {
         
-        Visita__c visit = VisitFixtureFactory.create('122345',AccountFixtureFactory.create('Matheus'));
+        Visita__c visit = VisitFixtureFactory.create('122345');
 
         VisitRepository repository = new VisitRepository();
 
