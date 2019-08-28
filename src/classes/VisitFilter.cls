@@ -24,7 +24,7 @@ public class VisitFilter {
 
     }
 
-        public List<Visita__c> filterJustExecutedVisitForAccount (List<Visita__c> newVisits, Map<Id, Visita__c> oldVisits)
+    public List<Visita__c> filterJustExecutedVisitForAccount (List<Visita__c> newVisits, Map<Id, Visita__c> oldVisits)
     {
         List<Visita__c> executedVisits = new List<Visita__c> ();
 
