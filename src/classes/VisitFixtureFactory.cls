@@ -1,41 +1,35 @@
-
-/**
- * @author: mhvithoft
- */
 @isTest
 public class VisitFixtureFactory {
+    
+    public static Visita__c buildVisit ( String zipCode ) {
+        Visita__c visit = new Visita__c();
+        visit.Endereco__c = 'Rua XXX';
+        visit.Bairro__c = 'Bairro XXX';
+        visit.Cep__c = zipCode;
+        visit.Cidade__c = 'Teste';
 
-        // Visita__c visit = new Visita__c ();
+        return visit;
+    }
 
-        // visit.Endereco__c = 'Rua XXX, NNN complemento';
-        // visit.Bairro__c = 'Bairro XXX';
-        // visit.Endereco__c = 'R XXX';
-        // visit.Cep__c = '123456-890';
-        // visit.Cidade__c = 'Cidade XXX';
+    public static Visita__c buildVisit ( String zipCode, Account account ) {
+        
+        Visita__c visit = buildVisit( zipCode ); 
+        visit.Conta__c = account.Id;
 
-        public static Visita__c buildVisit (String zipCode) {
+        return visit;
+    }
 
-            Visita__c visit = new Visita__c ();
+    public static Visita__c create ( String zipCode, Account account ) {
+        return create( buildVisit( zipCode, account ) );
+    }
 
-            visit.Endereco__c = 'Rua XXX, NNN complemento';
-            visit.Bairro__c = 'Bairro XXX';
-            visit.Endereco__c = 'R XXX';
-            visit.Cep__c = zipCode;
-            visit.Cidade__c = 'Cidade XXX';
+    public static Visita__c create ( String zipCode ) {
+        return create( buildVisit( zipCode ) );
+    }
 
-            return visit;
-        }
-
-        public static Visita__c create (String zipCode) {
-
-            return create (buildVisit (zipCode));
-        }
-
-        public static Visita__c create (Visita__c visit) {
-
-            insert visit;
-
-            return visit;
-        }
+    public static Visita__c create ( Visita__c visit ) {
+        insert visit;
+        return visit;
+    }
 
 }

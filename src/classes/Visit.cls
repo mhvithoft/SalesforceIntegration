@@ -1,7 +1,5 @@
-
-/**
- * @author: mhvithoft
- */
 public class Visit {
-
+    public void checkin () {
+        
+    }
 }

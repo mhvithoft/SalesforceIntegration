@@ -1,33 +1,29 @@
-
-/**
- * @author: mhvithoft
- */
 @isTest
-private class VisitRepositoryTest {
-
+public class VisitRepositoryTest { 
+    
     @isTest
-    public static  void findByZipCodeTest () {
+    public static void findByZipCodeTest () {
+        
+        Visita__c visit = VisitFixtureFactory.create('122345',AccountFixtureFactory.create('Matheus'));
 
-        Visita__c visit = VisitFixtureFactory.create ('12345-6789');
+        VisitRepository repository = new VisitRepository();
 
-        VisitRepository repository = new VisitRepository ();
-
-        List <Visita__c> visits = repository.findByZipCode ('123%');
-
-        System.assert (!visits.isEmpty());        
+        List<Visita__c> visits = repository.findByZipCode('122%');
+        
+        System.assert(!visits.isEmpty());
+        System.assertEquals(visit.Id, visits.get(0).Id);
     }
 
     @isTest
-    public static  void notFindByZipCodeTest () {
+    public static void notFoundByZipCodeTest () {
+        
+        Visita__c visit = VisitFixtureFactory.create('12345');
 
-        Visita__c visit = VisitFixtureFactory.create ('12345-6789');
+        VisitRepository repository = new VisitRepository();
 
-        VisitRepository repository = new VisitRepository ();
-
-        List <Visita__c> visits = repository.findByZipCode ('111%');
-
-        System.assert (visits.isEmpty());        
+        List<Visita__c> visits = repository.findByZipCode('122%');
+        
+        System.assert(visits.isEmpty());
     }
-
 
 }
