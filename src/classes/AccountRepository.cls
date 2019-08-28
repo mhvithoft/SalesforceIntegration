@@ -7,4 +7,10 @@ public class AccountRepository {
                 LIMIT 100
             ];
     }
+
+    public List<Account> save (List<Account> accounts) {
+            update accounts;
+            return accounts;
+    }
+
 }
