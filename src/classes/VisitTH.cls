@@ -27,6 +27,8 @@ public with sharing class VisitTH  extends TriggerHandler {
     public void afterInsert ()
     {
         System.debug( JSON.serialize (newVisits));
+
+        enrichAccountWithLastExecutedDate ();
     }
 
     override
@@ -34,6 +36,8 @@ public with sharing class VisitTH  extends TriggerHandler {
     {
         System.debug( JSON.serialize (newVisits));
         System.debug( JSON.serialize (oldVisits));
+
+        enrichAccountWithLastExecutedDate ();
     }
 
     override
